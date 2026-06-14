@@ -1537,6 +1537,7 @@ function tm_shield_generate($r, $force_reload = false) {
 		case 'fratr':
 		case 'fintr':
 		case 'irltr':
+		case 'nasib':
             $lines = explode(',',preg_replace('/(?!^)[A-Z]{3,}(?=[A-Z][a-z])|[A-Z][a-z]/', ',$0', $row['route']));
             $index = 0;
             foreach ($lines as $line) {

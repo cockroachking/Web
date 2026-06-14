@@ -189,7 +189,7 @@
     
     // check for required parameters
     if (array_key_exists("r", $_GET)) {
-        $rootparam = tm_validate_root($_GET['r']);
+        $rootparam = tm_validate_root(strtolower($_GET['r']));
 	check_root_error('r', $rootparam, $_GET['r']);
 	$routetype = "chopped";
         $sql_command = "SELECT * FROM routes LEFT JOIN systems ON systems.systemName=routes.systemName WHERE root='". $rootparam."'";
