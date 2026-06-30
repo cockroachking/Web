@@ -77,13 +77,38 @@ following sources of highway information.</p>
 <li><a href="http://www.unescap.org/our-work/transport">UNESCAP Transport</a>. UN site on transport in Asia and the Pacific. Includes Asian Highway list and maps.</li>
 	    </ul>
 	  </li>
-	  <li><a name="aut"></a><a style="text-decoration:none" href="#aut">&#x1f517</a>Austria
+<li><a name="aus"></a><a style="text-decoration:none" href="#aus">&#x1f517</a>Australia
+  <ul>
+	<li>New South Wales, AUS
+	    <ul>
+	    	<li><a href="https://data.nsw.gov.au/data/dataset/2-alpha-numeric-route-numbers">Alpha Numeric Route numbers</a>.Shapefiles from Transport for NSW.</li>
+			<li><a href="https://data.nsw.gov.au/data/dataset/2-nsw-tourist-routes">NSW Tourist Routes</a>.Shapefiles from Transport for NSW.</li>
+        </ul>
+	</li>
+	<li>South Australia, AUS
+	    <ul>
+	    	<li><a href="https://location.sa.gov.au/viewer/">Location SA Map Viewer</a>. GIS app from the Government of South Australia.</li>
+        </ul>
+	</li>
+	<li>Victoria, AUS
+	    <ul>
+	    	<li><a href="https://experience.arcgis.com/experience/068ac885fc3f47d4aecfea22c22c4e54">Map of DTP Managed Roads</a>. GIS app from Transport Victoria.</li>
+        </ul>
+	</li>
+	<li>Western Australia, AUS
+	    <ul>
+	    	<li><a href="https://web.archive.org/web/20110404120927/http://www.tourism.wa.gov.au/Publications%20Library/Tourist%20Drives%20of%20WA.pdf">Tourist Drives of Western Australia</a>. Informational brochure on Tourist Drives from Western Australia Tourism.</li>
+        </ul>
+	</li>
+  </ul>
+</li>
+<li><a name="aut"></a><a style="text-decoration:none" href="#aut">&#x1f517</a>Austria
 	    <ul>
         <li><a href="https://www.asfinag.at/">ASFINAG: Motorways and Expressways Road Concessionaire</a>. Official site of the motorway/expressway network in Austria.</li>
         <li><a href="https://www.ris.bka.gv.at/">Legal Information System of the Republic of Austria</a>. Platform and data base providing information on Austrian law.</li>
 	    </ul>
 	  </li>
-	  <li><a name="aze"></a><a style="text-decoration:none" href="#aze">&#x1f517</a>Azerbaijan
+<li><a name="aze"></a><a style="text-decoration:none" href="#aze">&#x1f517</a>Azerbaijan
 	    <ul>
 <li><a href="http://azeryol.az/az/content/325/">Roads of the Republic</a>. List of M and R routes from the Azerbaijan Ministry of Transport.</li>
 	    </ul>
@@ -393,6 +418,8 @@ following sources of highway information.</p>
 	  <li><a name="rks"></a><a style="text-decoration:none" href="#rks">&#x1f517</a>Kosovo
 	    <ul>
 <li><a href="http://www.putevi-srbije.rs/pdf/serbia_main_and_regional_road.pdf">Road Network Map</a>. PDF map of the road network of Serbia and Kosovo from Road of Serbia.</li>
+<li><a href="https://www.mit-ks.net/repository/docs/2025_10_13_080459_Listaerrugeve.pdf">List of Roads Under the Responsibility of "MMPHI"</a>. Route list from the Ministry of Infrastructure and Transport.</li>
+<li><a href="https://geoportal.rks-gov.net/portal/main">Kosovo Geoportal</a>. GIS app showing roadway classification.</li>
 	    </ul>
 	  </li>
 	  <li><a name="lva"></a><a style="text-decoration:none" href="#lva">&#x1f517</a>Latvia
