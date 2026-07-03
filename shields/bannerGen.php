@@ -4,6 +4,7 @@
 	Generate a single specified svg banner for the specified route.
 	
 	Params:
+		String $banner - The type of bannered route (Bus, Alt etc...)
 		String $r - The TM "root" such as ny.i090 or bc.tchyel .
 		Boolean $force_reload - force regeneration of the banner. Default is false.
 		
@@ -13,7 +14,7 @@
 		Returns 'not external' for routes that don't use external banners.
 
 */
-function tm_banner_generate($r, $force_reload = false) {
+function tm_banner_generate($banner, $r, $force_reload = false) {
 	
 	// Specify the shields directory
   	$dir = $_SERVER['DOCUMENT_ROOT']."/shields";
@@ -41,7 +42,7 @@ function tm_banner_generate($r, $force_reload = false) {
 			return 'not external';
 
 		case 'gbnm': // No banner for Tol, regular otherwise
-			if ($row['banner'] == "Tol") {
+			if ($banner == "Tol") {
 				return 'not external';
 			}
 			else {
@@ -68,7 +69,7 @@ function tm_banner_generate($r, $force_reload = false) {
 			break;
 
 		case 'usaga': // Banner for Truck, no banner otherwise
-			if ($row['banner'] == "Trk") {
+			if ($banner == "Trk") {
 				break;
 			}
 			else {
@@ -76,7 +77,7 @@ function tm_banner_generate($r, $force_reload = false) {
 			}
 
 		case 'usamd': // No banner for Bus, regular otherwise
-			if ($row['banner'] == "Bus") {
+			if ($banner == "Bus") {
 				return 'not external';
 			}
 			else {
@@ -84,7 +85,7 @@ function tm_banner_generate($r, $force_reload = false) {
 			}
 
 		case 'usamn': // No banner for Bus, regular otherwise
-			if ($row['banner'] == "Bus") {
+			if ($banner == "Bus") {
 				return 'not external';
 			}
 			else {
@@ -97,7 +98,7 @@ function tm_banner_generate($r, $force_reload = false) {
 			}
 
 		case 'usams': // Special banner for Sce, regular otherwise
-			if ($row['banner'] == "Sce") {
+			if ($banner == "Sce") {
 				$usamsScenic = true;
 				$svgNameSuffix = '_sr';
 				break;
@@ -150,9 +151,9 @@ function tm_banner_generate($r, $force_reload = false) {
 	
 	
 	// Check for existence of the requested banner in the cache
-	if ( file_exists( "{$dir}/cache/banner_{$row['banner']}{$svgNameSuffix}.svg" ) && !$force_reload ) {
+	if ( file_exists( "{$dir}/cache/banner_{$banner}{$svgNameSuffix}.svg" ) && !$force_reload ) {
 		// Load from cache
-		return file_get_contents("{$dir}/cache/banner_{$row['banner']}{$svgNameSuffix}.svg");
+		return file_get_contents("{$dir}/cache/banner_{$banner}{$svgNameSuffix}.svg");
 	}
 	
 	// Svg doesn't exist yet or regeneration was requested.
@@ -182,7 +183,7 @@ function tm_banner_generate($r, $force_reload = false) {
 	$fontSize = '260px';
 	$fontSeries = 'D';
 	
-	switch ($row['banner']) {
+	switch ($banner) {
 		case 'Alt':
 			$text = 'ALT';
 			$x = '300.5';
@@ -295,7 +296,7 @@ function tm_banner_generate($r, $force_reload = false) {
 	}
 
 	// Save this banner in the cache before returning
-	file_put_contents("{$dir}/cache/banner_{$row['banner']}{$svgNameSuffix}.svg", $svg);
+	file_put_contents("{$dir}/cache/banner_{$banner}{$svgNameSuffix}.svg", $svg);
 	
 	return $svg;
 	
