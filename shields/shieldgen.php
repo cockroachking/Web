@@ -1658,15 +1658,26 @@ function tm_shield_generate($r, $force_reload = false) {
 		    	$svg = file_get_contents("{$dir}/template_usaar_980.svg");
 	            break;
             }
+			elseif ($routeNum > 899) {
+				$svg = file_get_contents("{$dir}/template_usaar_mft.svg");
+				$svg = str_replace("***NUMBER***", $routeNum, $svg);
+				break;
+			}
             elseif (preg_match('/(?<number>[0-9]+)(?<letter>[A-Za-z]+)/', $routeNum, $matches)) {
-               $svg = str_replace("***NUMBER***", $matches['number'], $svg);
-               $svg = str_replace("***LETTER***", $matches['letter'], $svg);
-               break;
+				if (strlen($matches['number']) > 2) {
+					$svg = file_get_contents("{$dir}/template_usaar_wide.svg");
+				}
+				$svg = str_replace("***NUMBER***", $matches['number'], $svg);
+            	$svg = str_replace("***LETTER***", $matches['letter'], $svg);
+            	break;
             }
             else {
-               $svg = str_replace("***NUMBER***", $routeNum, $svg);
-               $svg = str_replace("***LETTER***", "", $svg);
-               break;
+				if (strlen($routeNum) > 2) {
+					$svg = file_get_contents("{$dir}/template_usaar_wide.svg");
+				}
+            	$svg = str_replace("***NUMBER***", $routeNum, $svg);
+            	$svg = str_replace("***LETTER***", "", $svg);
+            	break;
             }
 
         case 'usaga': // Georgia

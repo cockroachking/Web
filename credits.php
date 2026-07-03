@@ -79,10 +79,15 @@ following sources of highway information.</p>
 	  </li>
 <li><a name="aus"></a><a style="text-decoration:none" href="#aus">&#x1f517</a>Australia
   <ul>
+	<li>Australian Capital Territory, AUS
+	    <ul>
+	    	<li><a href="https://www.cityservices.act.gov.au/__data/assets/pdf_file/0007/1378528/Municipal-Infrastructure-Standards-12-Guide-Signs-1-1.pdf">MIS 12 Guide Signs</a>. Guide sign design manual from ACT Government with route map.</li>
+        </ul>
+	</li>
 	<li>New South Wales, AUS
 	    <ul>
-	    	<li><a href="https://data.nsw.gov.au/data/dataset/2-alpha-numeric-route-numbers">Alpha Numeric Route numbers</a>.Shapefiles from Transport for NSW.</li>
-			<li><a href="https://data.nsw.gov.au/data/dataset/2-nsw-tourist-routes">NSW Tourist Routes</a>.Shapefiles from Transport for NSW.</li>
+	    	<li><a href="https://data.nsw.gov.au/data/dataset/2-alpha-numeric-route-numbers">Alpha Numeric Route numbers</a>. Shapefiles from Transport for NSW.</li>
+			<li><a href="https://data.nsw.gov.au/data/dataset/2-nsw-tourist-routes">NSW Tourist Routes</a>. Shapefiles from Transport for NSW.</li>
         </ul>
 	</li>
 	<li>South Australia, AUS
