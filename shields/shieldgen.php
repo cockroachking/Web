@@ -1654,27 +1654,25 @@ function tm_shield_generate($r, $force_reload = false) {
         case 'usaar': // Arkansas
             $matches = [];
             $routeNum = str_replace("AR", "", $row['route']);
+			$numOnly = preg_replace('/\D.*/', '', $routeNum);
+			if (strlen($numOnly) > 2) {
+					$svg = file_get_contents("{$dir}/template_usaar_wide.svg");
+				}
 	        if ($routeNum == 980) {
 		    	$svg = file_get_contents("{$dir}/template_usaar_980.svg");
 	            break;
             }
-			elseif ($routeNum > 899) {
+			elseif ($numOnly > 899) {
 				$svg = file_get_contents("{$dir}/template_usaar_mft.svg");
 				$svg = str_replace("***NUMBER***", $routeNum, $svg);
 				break;
 			}
             elseif (preg_match('/(?<number>[0-9]+)(?<letter>[A-Za-z]+)/', $routeNum, $matches)) {
-				if (strlen($matches['number']) > 2) {
-					$svg = file_get_contents("{$dir}/template_usaar_wide.svg");
-				}
 				$svg = str_replace("***NUMBER***", $matches['number'], $svg);
             	$svg = str_replace("***LETTER***", $matches['letter'], $svg);
             	break;
             }
             else {
-				if (strlen($routeNum) > 2) {
-					$svg = file_get_contents("{$dir}/template_usaar_wide.svg");
-				}
             	$svg = str_replace("***NUMBER***", $routeNum, $svg);
             	$svg = str_replace("***LETTER***", "", $svg);
             	break;
