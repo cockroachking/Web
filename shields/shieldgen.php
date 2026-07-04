@@ -248,6 +248,7 @@ function tm_shield_generate($r, $force_reload = false) {
 		case 'austasb':
 		case 'ausvicb':
 		case 'ausntc':
+		case 'aussac':
 		case 'austasc':
 		case 'ausvicc':
             // Australia Alphanumeric Routes
