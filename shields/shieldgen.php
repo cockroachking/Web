@@ -1712,9 +1712,6 @@ function tm_shield_generate($r, $force_reload = false) {
 				if (strlen($routeNum) > 2) {
 					$svg = file_get_contents("{$dir}/template_usamd_wide.svg");
 				}
-				else {
-					$svg = file_get_contents("{$dir}/template_usamd.svg");
-				}
 			}
 			$svg = str_replace("***NUMBER***", $routeNum, $svg);
 			break;
@@ -1733,8 +1730,23 @@ function tm_shield_generate($r, $force_reload = false) {
 				if (strlen($routeNum) > 2) {
 					$svg = file_get_contents("{$dir}/template_usamn_wide.svg");
 				}
+			}
+			$svg = str_replace("***NUMBER***", $routeNum, $svg);
+			break;
+
+		case 'usams': // Mississippi
+			$routeNum = str_replace("MS", "", $row['route']);
+			if ($row['banner'] == "Sce") {
+				if (strlen($routeNum) > 2) {
+					$svg = file_get_contents("{$dir}/template_usams_sce_wide.svg");;
+				}
 				else {
-					$svg = file_get_contents("{$dir}/template_usamn.svg");
+					$svg = file_get_contents("{$dir}/template_usams_sce.svg");
+				}
+			}
+			else {
+				if (strlen($routeNum) > 2) {
+					$svg = file_get_contents("{$dir}/template_usams_wide.svg");
 				}
 			}
 			$svg = str_replace("***NUMBER***", $routeNum, $svg);
