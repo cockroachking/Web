@@ -138,7 +138,6 @@ function tm_shield_generate($r, $force_reload = false) {
             	}
             	break;
 			}
-
 		
 		case 'chlrn':
 			$routeNum = str_replace("R", "", $row['route']);
@@ -294,7 +293,7 @@ function tm_shield_generate($r, $force_reload = false) {
 		case 'ausqld':
 		case 'auswa':
 		case 'ausvicmr':
-			// Australian State Routes & Melbourne Metrpolitan Routes
+			// Australian State Routes & Melbourne Metropolitan Routes
 			$routeNum = str_replace("QLD", "", $row['route']);
 			$routeNum = str_replace("WA", "", $routeNum);
 			$routeNum = str_replace("MR", "", $routeNum);
@@ -2041,8 +2040,12 @@ function tm_shield_generate($r, $force_reload = false) {
 
 		case 'usanht':
 		case 'usatr':
-            if (file_exists("{$dir}/template_" . $row['systemName'] . "_" . strtolower($row['route']) . ".svg")) {
-                $svg = file_get_contents("{$dir}/template_" . $row['systemName'] . "_" . strtolower($row['route']) . ".svg");
+            if ($row['route'] == "GRR" && $row['banner'] == "Spr") {
+               	$svg = file_get_contents("{$dir}/template_usatr_grr_spr.svg");
+				break;
+            }
+            elseif (file_exists("{$dir}/template_" . $row['systemName'] . "_" . strtolower($row['route']) . ".svg")) {
+               	$svg = file_get_contents("{$dir}/template_" . $row['systemName'] . "_" . strtolower($row['route']) . ".svg");
 				break;
             }
         
