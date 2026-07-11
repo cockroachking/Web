@@ -113,6 +113,32 @@ function tm_shield_generate($r, $force_reload = false) {
 			$routeNum = str_replace("DF", "", $row['route']);
 			$svg = str_replace("***NUMBER***", $routeNum, $svg);
             break;
+
+		case 'brasf':
+			if (preg_match('/^[A-Z]{2}\d+/', $row['route'])) {
+				$routeNum = substr_replace($row['route'], '', 0, 2);
+				$region = substr($row['route'], 0, 2);
+				$svg = file_get_contents("{$dir}/template_braxx.svg");
+				$svg = str_replace("***NUMBER***", $routeNum, $svg);
+				$svg = str_replace("***REGION***", $region, $svg);
+				break;
+			}
+			else {
+				$lines = explode(',',preg_replace('/(?!^)[A-Z]{3,}(?=[A-Z][a-z])|[A-Z][a-z]/', ',$0', $row['route']));
+            	$index = 0;
+            	foreach ($lines as $line) {
+                	if (strlen($line) > 0) {
+                    	$svg = str_replace("***NUMBER".($index + 1)."***", $line, $svg);
+                    	$index++;
+                	}
+            	}
+            	while ($index < 3) {
+                	$svg = str_replace("***NUMBER".($index + 1)."***", "", $svg);
+                	$index++;
+            	}
+            	break;
+			}
+
 		
 		case 'chlrn':
 			$routeNum = str_replace("R", "", $row['route']);
@@ -258,15 +284,20 @@ function tm_shield_generate($r, $force_reload = false) {
 
 		case 'ausn':
 			// Australian National Highways
+			if ($row['region'] == "QLD") {
+				$svg = file_get_contents("{$dir}/template_nzlrr.svg");
+			}
 			$routeNum = str_replace("N", "", $row['route']);
 			$svg = str_replace("***NUMBER***", $routeNum, $svg);
 			break;
 		
 		case 'ausqld':
-		case 'auswa':	
-			// Australian State Routes
+		case 'auswa':
+		case 'ausvicmr':
+			// Australian State Routes & Melbourne Metrpolitan Routes
 			$routeNum = str_replace("QLD", "", $row['route']);
 			$routeNum = str_replace("WA", "", $routeNum);
+			$routeNum = str_replace("MR", "", $routeNum);
 			if (strlen($routeNum) > 2) {
 				$svg = file_get_contents("{$dir}/template_auss_wide.svg");	
 			}
@@ -284,10 +315,9 @@ function tm_shield_generate($r, $force_reload = false) {
 			break;
 			
 		case 'ausqldmr';
-		case 'ausvicmr';
-			// Australian Metroads
+			// Brisbane Metroads
 			$routeNum = str_replace("MR", "", $row['route']);
-			$svg = file_get_contents("{$dir}/template_" . $row['systemName'] . ".svg");
+			$svg = file_get_contents("{$dir}/template_ausqldmr.svg");
 			$svg = str_replace("***NUMBER***", $routeNum, $svg);
 			break;
 			       
@@ -1505,7 +1535,6 @@ function tm_shield_generate($r, $force_reload = false) {
 		case 'albsf':
 		case 'chlsf':
 		case 'colsf':
-		case 'deusf':
 		case 'grcsf':
 		case 'itasf':
 		case 'nldsf':
@@ -1523,7 +1552,6 @@ function tm_shield_generate($r, $force_reload = false) {
 		case 'ttomr':
 		case 'mexsf':
 		case 'mkdap':
-		case 'brasf':
 		case 'vena':
 		case 'nirtr':
 		case 'ltuaut':
@@ -1577,6 +1605,28 @@ function tm_shield_generate($r, $force_reload = false) {
 			}
 			break;
 
+		case 'deusf':
+			if (preg_match('/[0-9]/', $row['route'])) {
+				$svg = file_get_contents("{$dir}/template_deul" . strlen($row['route']) . ".svg");
+				$svg = str_replace("***NUMBER***", $row['route'], $svg);
+				break;
+			}
+			else {
+				$lines = explode(',',preg_replace('/(?!^)[A-Z]{3,}(?=[A-Z][a-z])|[A-Z][a-z]/', ',$0', $row['route']));
+            	$index = 0;
+            	foreach ($lines as $line) {
+                	if (strlen($line) > 0) {
+                    	$svg = str_replace("***NUMBER".($index + 1)."***", $line, $svg);
+                    	$index++;
+                	}
+            	}
+            	while ($index < 3) {
+                	$svg = str_replace("***NUMBER".($index + 1)."***", "", $svg);
+                	$index++;
+            	}
+            	break;
+			}
+		
 		case 'frasf':
             $lines = explode(',',preg_replace('/(?!^)[A-Z]{3,}(?=[A-Z][a-z])|[A-Z][a-z]/', ',$0', $row['route']));
 			$lines = array_map('strtoupper', $lines);
