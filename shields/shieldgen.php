@@ -641,8 +641,8 @@ function tm_shield_generate($r, $force_reload = false) {
 			}
             
         case 'abwrt':
-		case 'alakt':
-        case 'alavt':
+		case 'alah':
+        case 'alas':
         case 'asim':
 		case 'bdirn':
 		case 'bgri':
@@ -717,6 +717,7 @@ function tm_shield_generate($r, $force_reload = false) {
 			$routeNum = str_replace("RN", "", $routeNum);
             $routeNum = str_replace("R", "", $routeNum);
             $routeNum = str_replace("St", "", $routeNum);
+		    $routeNum = str_replace("S", "", $routeNum);
             $routeNum = str_replace("TH", "", $routeNum);
             $routeNum = str_replace("T", "", $routeNum);
             $routeNum = str_replace("Vt", "", $routeNum);
