@@ -283,7 +283,7 @@ function tm_shield_generate($r, $force_reload = false) {
 
 		case 'ausn':
 			// Australian National Highways
-			if ($row['region'] == "QLD") {
+			if ($row['region'] == "AUS-QLD") {
 				$svg = file_get_contents("{$dir}/template_nzlrr.svg");
 			}
 			$routeNum = str_replace("N", "", $row['route']);
@@ -1607,7 +1607,7 @@ function tm_shield_generate($r, $force_reload = false) {
 
 		case 'deusf':
 			if (preg_match('/[0-9]/', $row['route'])) {
-				$svg = file_get_contents("{$dir}/template_deul" . strlen($row['route']) . ".svg");
+				$svg = file_get_contents("{$dir}/template_deul3.svg");
 				$svg = str_replace("***NUMBER***", $row['route'], $svg);
 				break;
 			}
@@ -1788,10 +1788,10 @@ function tm_shield_generate($r, $force_reload = false) {
 			$routeNum = str_replace("MS", "", $row['route']);
 			if ($row['banner'] == "Sce") {
 				if (strlen($routeNum) > 2) {
-					$svg = file_get_contents("{$dir}/template_usams_sce_wide.svg");;
+					$svg = file_get_contents("{$dir}/template_usams_scenic_wide.svg");;
 				}
 				else {
-					$svg = file_get_contents("{$dir}/template_usams_sce.svg");
+					$svg = file_get_contents("{$dir}/template_usams_scenic.svg");
 				}
 			}
 			else {
