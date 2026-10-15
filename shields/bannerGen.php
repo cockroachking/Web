@@ -145,6 +145,25 @@ function tm_banner_generate($banner, $r, $force_reload = false) {
 			
 			break;
 	
+		case 'usaush':
+			if ($banner == "Old") {
+				break;
+			}
+			elseif ($row['region'] == "TN") {
+					break;
+			}
+			elseif ($row['region'] == "MS") {
+					$textColor = '#fff';
+					$borderColor = '#fff';
+					$fillColor = '#003f87';
+					$svgNameSuffix = '_wb';
+					$useFillTemplate = true;
+					break;
+			}
+			else {
+				return 'not external';
+			}
+	
 		default: // Black text on white bg
 			break;
 	}

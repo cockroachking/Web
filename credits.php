@@ -971,7 +971,8 @@ following sources of highway information.</p>
   <a href=https://github.com/shoorick/russian-road-sign-font>Russian Road Sign Font</a>,
   <a href=https://osp.kitchen/foundry/w-droge/>W Droge Font</a>,
   <a href=https://www.roads.org.uk/fonts>Motorway Font</a>,
-  and <a href=https://github.com/thevangelist/tie>Tie Font</a>.</li>
+  <a href=https://github.com/thevangelist/tie>Tie Font</a>,</li>
+  and <a href=https://pghbridges.com/hsotw/UShwy_font/>US Highways Old Style Font</a>.</li>
 </ul>
 
 <p class="heading"><a name="contributors">Project Contributors</a></p>

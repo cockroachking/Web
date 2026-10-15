@@ -513,13 +513,23 @@ function tm_shield_generate($r, $force_reload = false) {
 
         case 'usaus':
 		case 'usausb':
-		case 'usaush':
             $routeNum = str_replace("US", "", $row['route']);
 			if (strlen($routeNum) > 2) {
                 $svg = file_get_contents("{$dir}/template_" . $row['systemName'] . "_wide.svg");
             }
             $svg = str_replace("***NUMBER***", $routeNum, $svg);
             break;
+			
+		case 'usaush':
+			$routeNum = str_replace("US", "", $row['route']);
+            if (strlen($routeNum) > 2) {
+                $svg = file_get_contents("{$dir}/template_usaush_" . strtolower($row['region']) . "_wide.svg");
+            }
+			else {
+				$svg = file_get_contents("{$dir}/template_usaush_" . strtolower($row['region']) . ".svg");
+			}
+            $svg = str_replace("***NUMBER***", $routeNum, $svg);
+			break;
 
         case 'belb':
         case 'bgra':
